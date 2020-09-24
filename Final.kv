@@ -1,0 +1,22 @@
+<Final>:
+	FloatLayout:
+
+		canvas.before:
+			Rectangle:
+				pos:self.pos
+				size:self.size			
+				source:"primer1.png"
+		Label:
+			id:pobeda
+			font_size:25
+			pos_hint:{"top":.85,"right":.85}
+			size_hint:.7,.2
+		ImageButton:
+			pos_hint:{"top":.95,"right":.75}
+			size_hint:.5,.1
+			source:"vern.png"
+			on_press:
+				app.build()
+				app.change_screen("menu_screen")
+				app.notpriz()
+		

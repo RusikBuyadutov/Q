@@ -1,0 +1,37 @@
+<Vibor>:
+	FloatLayout:
+		canvas.before:
+			Rectangle:
+				pos:self.pos
+				size:self.size			
+				source:"primer1.png"
+		Image:
+			pos_hint:{"top":.99,"right":.75}
+			size_hint:.5,.1
+			source:"Vipiros.png"
+		GridLayout:
+			rows:1
+			pos_hint:{"top":.9,"left":1}
+			size_hint:1,.45
+				
+				
+			ImageButton:
+				id:karta1
+				source:""
+				on_press:
+					app.vopros1()
+					app.Klik()
+			ImageButton:
+				id:karta2
+				source:""
+				on_press:
+					app.vopros2()
+					app.Klik()
+		ImageButton:
+			id:karta3
+			pos_hint:{"top":.45,"left":1}
+			size_hint:1,.45
+			source:""
+			on_press:
+				app.vopros3()
+				app.Klik()
