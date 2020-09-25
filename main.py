@@ -53,7 +53,7 @@ class MainApp(App):
     global sound_menu
     global igroki_4_10
     global prizz
-    prizz=SoundLoader.load("п.wav")
+    prizz=SoundLoader.load("p.wav")
 
     sound_menu=SoundLoader.load("ZVUK.wav")
     def build(self): 
@@ -220,17 +220,17 @@ class MainApp(App):
         KatMor=self.root.ids["kategorii_screen"].ids["KatMor"]
         Kat18=self.root.ids["kategorii_screen"].ids["Kat18"]
         if KatSkelet.active==True:
-            self.kategor.append("Сзади\\S.png")
+            self.kategor.append("back\\S.png")
         if KatDobr.active==True:
-            self.kategor.append("Сзади\\D.png")
+            self.kategor.append("back\\D.png")
         if KatPol.active==True:
-            self.kategor.append("Сзади\\P.png")
+            self.kategor.append("back\\P.png")
         if KatVec.active==True:
-            self.kategor.append("Сзади\\V.png")
+            self.kategor.append("back\\V.png")
         if KatMor.active==True:
-            self.kategor.append("Сзади\\M.png")
+            self.kategor.append("back\\M.png")
         if Kat18.active==True:
-            self.kategor.append("Сзади\\18.png")
+            self.kategor.append("back\\18.png")
         if self.kategor==[]:
             self.viberite_kategor=self.root.ids["kategorii_screen"].ids["kategor_float"]
             self.viberite_kategor.add_widget(ImageButton(source="k.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
@@ -387,119 +387,119 @@ class MainApp(App):
        
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
        
-        if karta1.source=="Сзади\\S.png":
-            files = os.listdir("Вопросы\\Скелет")
+        if karta1.source=="back\\S.png":
+            files = os.listdir("Vopros\\S")
             index = random.randrange(0, len(files))
-            vopros.source="Вопросы\\Скелет" + "\\" + files[index]
+            vopros.source="Vopros\\S" + "\\" + files[index]
            
-        if karta1.source=="Сзади\\D.png":
-            files = os.listdir("..\\Вопросы\\Добрые")
+        if karta1.source=="back\\D.png":
+            files = os.listdir("Vopros\\D")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Добрые" + "\\" + files[index]
+            vopros.source="Vopros\\D" + "\\" + files[index]
             
-        if karta1.source=="Сзади\\M.png":
-            files = os.listdir("Вопросы\\Мораль")
+        if karta1.source=="back\\M.png":
+            files = os.listdir("Vopros\\M")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Мораль" + "\\" + files[index]
+            vopros.source="Vopros\\M" + "\\" + files[index]
             
-        if karta1.source=="Сзади\\P.png":
-            files = os.listdir("Вопросы\\Политика")
+        if karta1.source=="back\\P.png":
+            files = os.listdir("Vopros\\P")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Политика" + "\\" + files[index]
+            vopros.source="Vopros\\P" + "\\" + files[index]
             
-        if karta1.source=="..\\Сзади\\V.png":
-            files = os.listdir("Вопросы\\Вечеринка")
+        if karta1.source=="back\\V.png":
+            files = os.listdir("Vopros\\V")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Вечеринка" + "\\" + files[index]
+            vopros.source="Vopros\\V" + "\\" + files[index]
             
-        if karta1.source=="Сзади\\18.png":
-            files = os.listdir("Вопросы\\18")
+        if karta1.source=="back\\18.png":
+            files = os.listdir("Vopros\\I")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\18" + "\\" + files[index]
+            vopros.source="Vopros\\I" + "\\" + files[index]
         app.change_screen("vopros_screen")
         
         
     def vopros2(self):       
         karta2=self.root.ids["vibor_screen"].ids["karta2"]                
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
-        if karta2.source=="Сзади\\S.png":
-            files = os.listdir("..\\Вопросы\\Скелет")
+        if karta2.source=="back\\S.png":
+            files = os.listdir("Vopros\\S")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Скелет" + "\\" + files[index]
+            vopros.source="Vopros\\S" + "\\" + files[index]
             
-        if karta2.source=="Сзади\\D.png":
-            files = os.listdir("Вопросы\\Добрые")
+        if karta2.source=="back\\D.png":
+            files = os.listdir("Vopros\\D")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Добрые" + "\\" + files[index]
+            vopros.source="Vopros\\D" + "\\" + files[index]
             
-        if karta2.source=="Сзади\\M.png":
-            files = os.listdir("Вопросы\\Мораль")
+        if karta2.source=="back\\M.png":
+            files = os.listdir("Vopros\\M")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Мораль" + "\\" + files[index]
+            vopros.source="Vopros\\M" + "\\" + files[index]
            
-        if karta2.source=="Сзади\\P.png":
-            files = os.listdir("Вопросы\\Политика")
+        if karta2.source=="back\\P.png":
+            files = os.listdir("Vopros\\P")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Политика" + "\\" + files[index]
+            vopros.source="Vopros\\P" + "\\" + files[index]
             
-        if karta2.source=="Сзади\\V.png":
-            files = os.listdir("Вопросы\\Вечеринка")
+        if karta2.source=="back\\V.png":
+            files = os.listdir("Vopros\\V")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Вечеринка" + "\\" + files[index]
+            vopros.source="Vopros\\V" + "\\" + files[index]
             
-        if karta2.source=="Сзади\\18.png":
-            files = os.listdir("Вопросы\\18")
+        if karta2.source=="back\\18.png":
+            files = os.listdir("Vopros\\I")
             index = random.randrange(0, len(files))
-            vopros.source="Вопросы\\18" + "\\" + files[index]
+            vopros.source="Vopros\\I" + "\\" + files[index]
         app.change_screen("vopros_screen")
     def vopros3(self):       
         karta3=self.root.ids["vibor_screen"].ids["karta3"]                
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
-        if karta3.source=="Сзади\\S.png":
-            files = os.listdir("Вопросы\\Скелет")
+        if karta3.source=="back\\S.png":
+            files = os.listdir("Vopros\\S")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Скелет" + "\\" + files[index]
+            vopros.source="Vopros\\S" + "\\" + files[index]
             
-        if karta3.source=="Сзади\\D.png":
-            files = os.listdir("Вопросы\\Добрые")
+        if karta3.source=="back\\D.png":
+            files = os.listdir("Vopros\\D")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Добрые" + "\\" + files[index]
+            vopros.source="Vopros\\D" + "\\" + files[index]
             
-        if karta3.source=="Сзади\\M.png":
-            files = os.listdir("Вопросы\\Мораль")
+        if karta3.source=="back\\M.png":
+            files = os.listdir("Vopros\\M")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Мораль" + "\\" + files[index]
+            vopros.source="Vopros\\M" + "\\" + files[index]
             
-        if karta3.source=="Сзади\\P.png":
-            files = os.listdir("Вопросы\\Политика")
+        if karta3.source=="back\\P.png":
+            files = os.listdir("Vopros\\P")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Политика" + "\\" + files[index]
+            vopros.source="Vopros\\P" + "\\" + files[index]
             
-        if karta3.source=="Сзади\\V.png":
-            files = os.listdir("Вопросы\\Вечеринка")
+        if karta3.source=="back\\V.png":
+            files = os.listdir("Vopros\\V")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\Вечеринка" + "\\" + files[index]
+            vopros.source="Vopros\\V" + "\\" + files[index]
             
-        if karta3.source=="Сзади\\18.png":
-            files = os.listdir("Вопросы\\18")
+        if karta3.source=="back\\18.png":
+            files = os.listdir("Vopros\\I")
             index = random.randrange(0, len(files))
             
-            vopros.source="Вопросы\\18" + "\\" + files[index]
+            vopros.source="Vopros\\I" + "\\" + files[index]
         app.change_screen("vopros_screen")
 
 app = MainApp()
