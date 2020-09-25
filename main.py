@@ -107,38 +107,38 @@ class MainApp(App):
         if self.click==4:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(24/255, 255/255, 255/255, 1),multiline=False,background_normal="C:\\Users\\--\\Desktop\\ПРИЛОЖЕНИЕ\\Knopka.png"
+            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(24/255, 255/255, 255/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k)))
 
         if self.click==5:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 111/255, 0/255, 1),multiline=False,background_normal="C:\\Users\\--\\Desktop\\ПРИЛОЖЕНИЕ\\Knopka.png"
+            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 111/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==6:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 64/255, 129/255, 1),multiline=False,background_normal="C:\\Users\\--\\Desktop\\ПРИЛОЖЕНИЕ\\Knopka.png"
+            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 64/255, 129/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==7:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 255/255, 0/255, 1),multiline=False,background_normal="C:\\Users\\--\\Desktop\\ПРИЛОЖЕНИЕ\\Knopka.png"
+            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 255/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(0,0,0,.6),on_text_validate=partial(self.proverka2, k) ))
         if self.click==8:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(124/255, 67/255, 189/255, 1),multiline=False,background_normal="C:\\Users\\--\\Desktop\\ПРИЛОЖЕНИЕ\\Knopka.png"
+            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(124/255, 67/255, 189/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==9:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(164/255, 164/255, 164/255, 1),multiline=False,background_normal="C:\\Users\\--\\Desktop\\ПРИЛОЖЕНИЕ\\Knopka.png"
+            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(164/255, 164/255, 164/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==10:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(93/255, 64/255, 55/255, 1),multiline=False,background_normal="C:\\Users\\--\\Desktop\\ПРИЛОЖЕНИЕ\\Knopka.png"
+            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(93/255, 64/255, 55/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         
         if self.click>10:
