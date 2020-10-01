@@ -107,38 +107,38 @@ class MainApp(App):
         if self.click==4:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(24/255, 255/255, 255/255, 1),multiline=False,background_normal="Knopka.png"
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(24/255, 255/255, 255/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k)))
 
         if self.click==5:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 111/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 111/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==6:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 64/255, 129/255, 1),multiline=False,background_normal="Knopka.png"
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 64/255, 129/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==7:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 255/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 255/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(0,0,0,.6),on_text_validate=partial(self.proverka2, k) ))
         if self.click==8:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(124/255, 67/255, 189/255, 1),multiline=False,background_normal="Knopka.png"
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(124/255, 67/255, 189/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==9:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(164/255, 164/255, 164/255, 1),multiline=False,background_normal="Knopka.png"
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(164/255, 164/255, 164/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==10:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=20,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(93/255, 64/255, 55/255, 1),multiline=False,background_normal="Knopka.png"
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(93/255, 64/255, 55/255, 1),multiline=False,background_normal="Knopka.png"
                     ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
         
         if self.click>10:
@@ -220,17 +220,17 @@ class MainApp(App):
         KatMor=self.root.ids["kategorii_screen"].ids["KatMor"]
         Kat18=self.root.ids["kategorii_screen"].ids["Kat18"]
         if KatSkelet.active==True:
-            self.kategor.append("back\\S.png")
+            self.kategor.append("back/S.png")
         if KatDobr.active==True:
-            self.kategor.append("back\\D.png")
+            self.kategor.append("back/D.png")
         if KatPol.active==True:
-            self.kategor.append("back\\P.png")
+            self.kategor.append("back/P.png")
         if KatVec.active==True:
-            self.kategor.append("back\\V.png")
+            self.kategor.append("back/V.png")
         if KatMor.active==True:
-            self.kategor.append("back\\M.png")
+            self.kategor.append("back/M.png")
         if Kat18.active==True:
-            self.kategor.append("back\\18.png")
+            self.kategor.append("back/18.png")
         if self.kategor==[]:
             self.viberite_kategor=self.root.ids["kategorii_screen"].ids["kategor_float"]
             self.viberite_kategor.add_widget(ImageButton(source="k.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
@@ -387,119 +387,119 @@ class MainApp(App):
        
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
        
-        if karta1.source=="back\\S.png":
-            files = os.listdir("Vopros\\S")
+        if karta1.source=="back/S.png":
+            files = os.listdir("Vopros/S")
             index = random.randrange(0, len(files))
-            vopros.source="Vopros\\S" + "\\" + files[index]
+            vopros.source="Vopros/S" + "/" + files[index]
            
-        if karta1.source=="back\\D.png":
-            files = os.listdir("Vopros\\D")
+        if karta1.source=="back/D.png":
+            files = os.listdir("Vopros/D")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\D" + "\\" + files[index]
+            vopros.source="Vopros/D" + "/" + files[index]
             
-        if karta1.source=="back\\M.png":
-            files = os.listdir("Vopros\\M")
+        if karta1.source=="back/M.png":
+            files = os.listdir("Vopros/M")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\M" + "\\" + files[index]
+            vopros.source="Vopros/M" + "/" + files[index]
             
-        if karta1.source=="back\\P.png":
-            files = os.listdir("Vopros\\P")
+        if karta1.source=="back/P.png":
+            files = os.listdir("Vopros/P")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\P" + "\\" + files[index]
+            vopros.source="Vopros/P" + "/" + files[index]
             
-        if karta1.source=="back\\V.png":
-            files = os.listdir("Vopros\\V")
+        if karta1.source=="back/V.png":
+            files = os.listdir("Vopros/V")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\V" + "\\" + files[index]
+            vopros.source="Vopros/V" + "/" + files[index]
             
-        if karta1.source=="back\\18.png":
-            files = os.listdir("Vopros\\I")
+        if karta1.source=="back/18.png":
+            files = os.listdir("Vopros/I")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\I" + "\\" + files[index]
+            vopros.source="Vopros/I" + "/" + files[index]
         app.change_screen("vopros_screen")
         
         
     def vopros2(self):       
         karta2=self.root.ids["vibor_screen"].ids["karta2"]                
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
-        if karta2.source=="back\\S.png":
-            files = os.listdir("Vopros\\S")
+        if karta2.source=="back/S.png":
+            files = os.listdir("Vopros/S")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\S" + "\\" + files[index]
+            vopros.source="Vopros/S" + "/" + files[index]
             
-        if karta2.source=="back\\D.png":
-            files = os.listdir("Vopros\\D")
+        if karta2.source=="back/D.png":
+            files = os.listdir("Vopros/D")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\D" + "\\" + files[index]
+            vopros.source="Vopros/D" + "/" + files[index]
             
-        if karta2.source=="back\\M.png":
-            files = os.listdir("Vopros\\M")
+        if karta2.source=="back/M.png":
+            files = os.listdir("Vopros/M")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\M" + "\\" + files[index]
+            vopros.source="Vopros/M" + "/" + files[index]
            
-        if karta2.source=="back\\P.png":
-            files = os.listdir("Vopros\\P")
+        if karta2.source=="back/P.png":
+            files = os.listdir("Vopros/P")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\P" + "\\" + files[index]
+            vopros.source="Vopros/P" + "/" + files[index]
             
-        if karta2.source=="back\\V.png":
-            files = os.listdir("Vopros\\V")
+        if karta2.source=="back/V.png":
+            files = os.listdir("Vopros/V")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\V" + "\\" + files[index]
+            vopros.source="Vopros/V" + "/" + files[index]
             
-        if karta2.source=="back\\18.png":
-            files = os.listdir("Vopros\\I")
+        if karta2.source=="back/18.png":
+            files = os.listdir("Vopros/I")
             index = random.randrange(0, len(files))
-            vopros.source="Vopros\\I" + "\\" + files[index]
+            vopros.source="Vopros/I" + "/" + files[index]
         app.change_screen("vopros_screen")
     def vopros3(self):       
         karta3=self.root.ids["vibor_screen"].ids["karta3"]                
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
-        if karta3.source=="back\\S.png":
-            files = os.listdir("Vopros\\S")
+        if karta3.source=="back/S.png":
+            files = os.listdir("Vopros/S")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\S" + "\\" + files[index]
+            vopros.source="Vopros/S" + "/" + files[index]
             
-        if karta3.source=="back\\D.png":
-            files = os.listdir("Vopros\\D")
+        if karta3.source=="back/D.png":
+            files = os.listdir("Vopros/D")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\D" + "\\" + files[index]
+            vopros.source="Vopros/D" + "/" + files[index]
             
-        if karta3.source=="back\\M.png":
-            files = os.listdir("Vopros\\M")
+        if karta3.source=="back/M.png":
+            files = os.listdir("Vopros/M")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\M" + "\\" + files[index]
+            vopros.source="Vopros/M" + "/" + files[index]
             
-        if karta3.source=="back\\P.png":
-            files = os.listdir("Vopros\\P")
+        if karta3.source=="back/P.png":
+            files = os.listdir("Vopros/P")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\P" + "\\" + files[index]
+            vopros.source="Vopros/P" + "/" + files[index]
             
-        if karta3.source=="back\\V.png":
-            files = os.listdir("Vopros\\V")
+        if karta3.source=="back/V.png":
+            files = os.listdir("Vopros/V")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\V" + "\\" + files[index]
+            vopros.source="Vopros/V" + "/" + files[index]
             
-        if karta3.source=="back\\18.png":
-            files = os.listdir("Vopros\\I")
+        if karta3.source=="back/18.png":
+            files = os.listdir("Vopros/I")
             index = random.randrange(0, len(files))
             
-            vopros.source="Vopros\\I" + "\\" + files[index]
+            vopros.source="Vopros/I" + "/" + files[index]
         app.change_screen("vopros_screen")
 
 app = MainApp()
