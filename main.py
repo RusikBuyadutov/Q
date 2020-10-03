@@ -53,9 +53,9 @@ class MainApp(App):
     global sound_menu
     global igroki_4_10
     global prizz
-    prizz=SoundLoader.load("p.mp3")
+    prizz=SoundLoader.load("p.wav")
 
-    sound_menu=SoundLoader.load("ZVUK.mp3")
+    sound_menu=SoundLoader.load("ZVUK.wav")
     def build(self): 
         self.v=2
         self.lol=-3
@@ -75,7 +75,7 @@ class MainApp(App):
         self.imena=[]
         return GUI
     def Klik(self):
-        sound_klik=SoundLoader.load("zvuk_klik.mp3")
+        sound_klik=SoundLoader.load("zvuk_klik.wav")
         sound_klik.volume=".2"
         sound_klik.play()   
     def priz(self):
