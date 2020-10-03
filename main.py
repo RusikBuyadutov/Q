@@ -26,6 +26,7 @@ from functools import partial
 from  kivy.uix.gridlayout import GridLayout
 import random
 import os
+from kivy.uix.recycleview import RecycleView
 class ImageButton(ButtonBehavior,Image):
     pass
 class Menu(Screen):
@@ -53,9 +54,9 @@ class MainApp(App):
     global sound_menu
     global igroki_4_10
     global prizz
-    prizz=SoundLoader.load("p.wav")
+    prizz=SoundLoader.load("p.mp3")
 
-    sound_menu=SoundLoader.load("ZVUK.wav")
+    sound_menu=SoundLoader.load("ZVUK.mp3")
     def build(self): 
         self.v=2
         self.lol=-3
@@ -75,7 +76,7 @@ class MainApp(App):
         self.imena=[]
         return GUI
     def Klik(self):
-        sound_klik=SoundLoader.load("zvuk_klik.wav")
+        sound_klik=SoundLoader.load("zvuk_klik.mp3")
         sound_klik.volume=".2"
         sound_klik.play()   
     def priz(self):
@@ -85,6 +86,10 @@ class MainApp(App):
         prizz.stop()
     def Zvuk(self):
         zvuk_knopka=self.root.ids["menu_screen"].ids["zvuk"]
+        if zvuk_knopka.source =="VonON.png":
+            zvuk_knopka.source="VolOFF.png"
+        else:
+            zvuk_knopka.source ="VonON.png"
         if  zvuk_knopka.source=="VonON.png":
            
             sound_menu.volume=".1"
@@ -92,14 +97,21 @@ class MainApp(App):
             sound_menu.loop=True
         if zvuk_knopka.source=="VolOFF.png":
             sound_menu.stop()
+    def change_pravila(self,screen_name):
+        
+        screen_manager=self.root.ids["screen_manager"]
+        screen_manager.transition=WipeTransition() 
+        screen_manager.current=screen_name
+        
     def change_screen(self,screen_name):
         screen_manager=self.root.ids["screen_manager"]
-        if screen_manager.current == "menu_screen":screen_manager.transition=RiseInTransition()
-        if screen_manager.current == "pravila_screen":screen_manager.transition=WipeTransition()
-        else:screen_manager.transition=FallOutTransition()     
-        screen_manager.current=screen_name
+        
     
-        pass
+        if screen_manager.current == "menu_screen":screen_manager.transition=RiseInTransition()
+        
+        else:screen_manager.transition=FallOutTransition()     
+        
+        screen_manager.current=screen_name
     def add_player(self):
         self.click+=1
         k=0
@@ -107,44 +119,44 @@ class MainApp(App):
         if self.click==4:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(24/255, 255/255, 255/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k)))
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k)))
 
         if self.click==5:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 111/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==6:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 64/255, 129/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==7:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 255/255, 0/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,.6),on_text_validate=partial(self.proverka2, k) ))
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==8:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(124/255, 67/255, 189/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==9:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(164/255, 164/255, 164/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
         if self.click==10:
             self.chet.append(0)
             A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(93/255, 64/255, 55/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(1,1,1,1),on_text_validate=partial(self.proverka2, k) ))
+            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
         
         if self.click>10:
             z=0
             self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-            self.vvedite_imya.add_widget(ImageButton(source="Vnimanie.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+            self.vvedite_imya.add_widget(ImageButton(source="Vnimanie.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
                         on_press=partial(self.Udalit_Vizov_Vvedite_Imya, z)))
     
     
@@ -188,7 +200,7 @@ class MainApp(App):
                 if Imya.text=="":
                     
                     self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-                    self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                    self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
                         on_press=partial(self.Udalit_Vizov_Vvedite_Imya, l)))
                        
                     
@@ -320,8 +332,8 @@ class MainApp(App):
         self.board=self.root.ids["leader_screen"].ids["leaderboard"]
         
         for i in range(self.click):
-            imeno=Label(text=str(self.imena[i]),font_size=20,bold=True,color=[0,0,0,1])
-            kek=Label(text=str(self.chet[i]),font_size=20,bold=True,color=[0,0,0,1])
+            imeno=Label(text=str(self.imena[i]),font_size=40,bold=True,color=[0,0,0,1])
+            kek=Label(text=str(self.chet[i]),font_size=40,bold=True,color=[0,0,0,1])
             self.board.add_widget(imeno)
             self.board.add_widget(kek)
             

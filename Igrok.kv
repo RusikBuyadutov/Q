@@ -27,13 +27,13 @@
 				app.proverka3()
 		ImageButton:
 			pos_hint:{"top":.99,"right":.94}
-			size_hint:.08,.08
+			size_hint:.1,.1
 			source:"Krestik.png"
 			on_press:
 				app.Klik()
 			on_release:
 				app.change_screen("menu_screen")
-		ScrollView:
+		RecycleView:
 			pos_hint:{"top":.8,"right":1}
 			size_hint:1,1
 			GridLayout:
@@ -50,9 +50,9 @@
 					font_size:40
 					halign: 'center'
 	                valign: 'middle'
-					background_color:(255/255, 0, 0, 1)
+					background_color:(255/255, 158/255, 128/255, 1)
 					hint_text:"Введите имя 1-ого"
-					hint_text_color:1,1,1,1
+					hint_text_color:0,0,0,1
 					multiline:False					
 					background_normal:"Knopka.png"
 					background_active:"Knopka.png"
@@ -62,9 +62,9 @@
 					font_size:40
 					halign: 'center'
 	                valign: 'middle'
-	                background_color:(0/255, 0/255, 225/255, 1)
+	                background_color:(255/255, 158/255, 128/255, 1)
 					hint_text:"Введите имя 2-ого"
-					hint_text_color:1,1,1,1
+					hint_text_color:0,0,0,1
 					multiline:False
 					background_normal:"Knopka.png"
 					background_active:"Knopka.png"
@@ -73,9 +73,9 @@
 					font_size:40
 					halign: 'center'
 	                valign: 'middle'
-	                background_color:(50/255, 203/255, 0/255, 1)
+	                background_color:(255/255, 158/255, 128/255, 1)
 					hint_text:"Введите имя 3-его"
-					hint_text_color:1,1,1,1
+					hint_text_color:0,0,0,1
 					multiline:False
 					background_normal:"Knopka.png"
 					background_active:"Knopka.png"
