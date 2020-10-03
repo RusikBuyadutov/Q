@@ -85,11 +85,11 @@ class MainApp(App):
         prizz.stop()
     def Zvuk(self):
         zvuk_knopka=self.root.ids["menu_screen"].ids["zvuk"]
-        if zvuk_knopka.source =="VonON.png":
+        if zvuk_knopka.source =="VonOn.png":
             zvuk_knopka.source="VolOFF.png"
         else:
-            zvuk_knopka.source ="VonON.png"
-        if  zvuk_knopka.source=="VonON.png":
+            zvuk_knopka.source ="VonOn.png"
+        if  zvuk_knopka.source=="VonOn.png":
            
             sound_menu.volume=".1"
             sound_menu.play()
