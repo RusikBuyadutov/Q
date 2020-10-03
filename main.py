@@ -10,8 +10,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 from kivy.uix.button import ButtonBehavior
 from kivy.uix.screenmanager import NoTransition
-from kivy.uix.screenmanager import ShaderTransition
-from kivy.uix.screenmanager import FadeTransition
+
 from kivy.uix.screenmanager import FallOutTransition
 from kivy.uix.screenmanager import RiseInTransition
 from kivy.uix.textinput import TextInput
@@ -21,12 +20,12 @@ from  kivy.uix.label import Label
 from kivy.uix.screenmanager import WipeTransition
 from kivy.core.audio import SoundLoader
 from kivy.uix.checkbox import CheckBox
-from kivy.graphics import Line
+
 from functools import partial
 from  kivy.uix.gridlayout import GridLayout
 import random
-import os
-from kivy.uix.recycleview import RecycleView
+
+
 class ImageButton(ButtonBehavior,Image):
     pass
 class Menu(Screen):
