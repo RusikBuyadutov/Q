@@ -514,4 +514,6 @@ class MainApp(App):
         app.change_screen("vopros_screen")
 
 app = MainApp()
+import bugs
+bugs.fixBugs()
 app.run()
