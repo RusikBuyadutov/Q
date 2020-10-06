@@ -1,4 +1,5 @@
 from kivy.app import App
+import webbrowser
 from kivy.uix.image import Image
 from kivy.uix.button import Button  
 from kivy.uix.widget import Widget
@@ -10,7 +11,7 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 from kivy.uix.button import ButtonBehavior
 from kivy.uix.screenmanager import NoTransition
-
+from kivmob import KivMob, TestIds,RewardedListenerInterface
 from kivy.uix.screenmanager import FallOutTransition
 from kivy.uix.screenmanager import RiseInTransition
 from kivy.uix.textinput import TextInput
@@ -20,11 +21,11 @@ from  kivy.uix.label import Label
 from kivy.uix.screenmanager import WipeTransition
 from kivy.core.audio import SoundLoader
 from kivy.uix.checkbox import CheckBox
-
+from kivy.uix.scrollview import ScrollView
 from functools import partial
 from  kivy.uix.gridlayout import GridLayout
 import random
-
+import os
 
 class ImageButton(ButtonBehavior,Image):
     pass
@@ -34,9 +35,29 @@ class Kategorii(Screen):
     pass
 class Pravila(Screen):
     pass
+class Pravilakz(Screen):
+    pass
 class Igrok(Screen):
     pass
 class Pravila2(Screen):
+    pass
+class Pravila3(Screen):
+    pass
+class Pravila4(Screen):
+    pass
+class Pravila5(Screen):
+    pass
+class Pravila6(Screen):
+    pass
+class Pravila2kz(Screen):
+    pass
+class Pravila3kz(Screen):
+    pass
+class Pravila4kz(Screen):
+    pass
+class Pravila5kz(Screen):
+    pass
+class Pravila6kz(Screen):
     pass
 class Vibor(Screen):
     pass
@@ -48,6 +69,10 @@ class Leader(Screen):
     pass
 class Final(Screen):
     pass
+class Info(Screen):
+    pass
+
+
 GUI=Builder.load_file("Main.kv")    
 class MainApp(App):
     global sound_menu
@@ -56,7 +81,11 @@ class MainApp(App):
     prizz=SoundLoader.load("p.wav")
 
     sound_menu=SoundLoader.load("ZVUK.wav")
-    def build(self): 
+    def build(self):
+        self.ads = KivMob(TestIds.APP)
+        self.ads.new_banner(TestIds.BANNER, top_pos=True)
+        self.ads.request_banner()
+        self.ads.show_banner()
         self.v=2
         self.lol=-3
         self.click=3
@@ -73,7 +102,72 @@ class MainApp(App):
         self.otveti=[]
         self.chet=[0,0,0]
         self.imena=[]
+        self.kazak=False
         return GUI
+    def kazah(self):
+        if self.kazak==False:
+            self.kazak=True
+        else:
+            self.kazak=False
+        
+        
+        kzigrat=self.root.ids["menu_screen"].ids["knopkaigrat"]
+        kzpravila=self.root.ids["menu_screen"].ids["knopkapravila"]
+        kzyazik=self.root.ids["menu_screen"].ids["knopkayazik"]
+        kzigrokprodoljit=self.root.ids["igrok_screen"].ids["igrokprodoljit"]
+        kzigrok1=self.root.ids["igrok_screen"].ids["igrok1"]
+        kzigrok2=self.root.ids["igrok_screen"].ids["igrok2"]
+        kzigrok3=self.root.ids["igrok_screen"].ids["igrok3"]
+        kzstart=self.root.ids["kategorii_screen"].ids["knopkastart"]
+        KzSkelet=self.root.ids["kategorii_screen"].ids["s"]
+        KzDobr=self.root.ids["kategorii_screen"].ids["d"]
+        KzPol=self.root.ids["kategorii_screen"].ids["p"]
+        KzVec=self.root.ids["kategorii_screen"].ids["v"]
+        KzMor=self.root.ids["kategorii_screen"].ids["m"]
+        Kz18=self.root.ids["kategorii_screen"].ids["i"]
+        kzviborvopros=self.root.ids["vibor_screen"].ids["viborvopros"]
+        kzza=self.root.ids["vopros_screen"].ids["za"]
+        kzprotiv=self.root.ids["vopros_screen"].ids["protiv"]
+        kzsledvopros=self.root.ids["leader_screen"].ids["sledvopros"]
+        if self.kazak==True:
+            
+            kzsledvopros.source="kz/KZ Следующий ход.png"
+            kzigrat.source="kz/KZ Играть.png"
+            kzprotiv.source="kz/KZ Против.png"
+            kzza.source="kz/KZ За.png"
+            kzpravila.source="kz/KZ Правила.png"
+            kzyazik.source="kz/KZ Язык.png"
+            kzigrokprodoljit.source="kz/KZ Продолжит.png"
+            kzviborvopros.source="kz/KZ Выберите вопрос.png"
+            Kz18.source="kz/kat/intim.png"
+            kzigrok1.hint_text="Біріншісінің атын енгізіңіз"
+            KzMor.source="kz/kat/moral.png"
+            kzstart.source="kz/KZ Начать игру.png"
+            KzVec.source="kz/kat/vech.png"
+            kzigrok2.hint_text="Екіншісінің атын енгізіңіз"
+            kzigrok3.hint_text="Үшіншісінің атын енгізіңіз"
+            KzDobr.source="kz/kat/dobr.png"
+            KzPol.source="kz/kat/pol.png"
+            KzSkelet.source="kz/kat/skelet.png"
+        if self.kazak==False:
+            kzsledvopros.source="sled1.png"
+            kzigrat.source="Igrat.png"
+            kzprotiv.source="Protiv.png"
+            kzza.source="Za.png"
+            kzpravila.source="Pravila.png"
+            kzyazik.source="Yazik.png"
+            kzigrokprodoljit.source="Go.png"
+            kzviborvopros.source="Vipiros.png"
+            Kz18.source="kategory/18.png"
+            kzigrok1.hint_text="Введите имя 1-ого"
+            KzMor.source="kategory/Moral.png"
+            kzstart.source="Start.png"
+            KzVec.source="kategory/Vecherinka.png"
+            kzigrok2.hint_text="Введите имя 2-ого"
+            kzigrok3.hint_text="Введите имя 3-ого"
+            KzDobr.source="kategory/Dobrye.png"
+            KzPol.source="kategory/Politika.png"
+            KzSkelet.source="kategory/Skelet.png"
     def Klik(self):
         sound_klik=SoundLoader.load("zvuk_klik.wav")
         sound_klik.volume=".2"
@@ -85,10 +179,13 @@ class MainApp(App):
         prizz.stop()
     def Zvuk(self):
         zvuk_knopka=self.root.ids["menu_screen"].ids["zvuk"]
+        
         if zvuk_knopka.source =="VonOn.png":
             zvuk_knopka.source="VolOFF.png"
+            
         else:
             zvuk_knopka.source ="VonOn.png"
+            
         if  zvuk_knopka.source=="VonOn.png":
            
             sound_menu.volume=".1"
@@ -111,75 +208,157 @@ class MainApp(App):
         else:screen_manager.transition=FallOutTransition()     
         
         screen_manager.current=screen_name
-    def add_player(self):
-        self.click+=1
-        k=0
-        d=0
-        if self.click==4:
-            self.chet.append(0)
-            A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k)))
-
-        if self.click==5:
-            self.chet.append(0)
-            A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
-        if self.click==6:
-            self.chet.append(0)
-            A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
-        if self.click==7:
-            self.chet.append(0)
-            A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
-        if self.click==8:
-            self.chet.append(0)
-            A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
-        if self.click==9:
-            self.chet.append(0)
-            A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
-        if self.click==10:
-            self.chet.append(0)
-            A=self.root.ids["igrok_screen"].ids["IGROKI"]
-            A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
-                    ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+    def pravilala(self):
+        if self.kazak==True:
+            app.change_screen("pravilakz_screen")
+        if self.kazak==False:
+            app.change_screen("pravila_screen")
         
-        if self.click>10:
-            z=0
-            self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-            self.vvedite_imya.add_widget(ImageButton(source="Vnimanie.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
-                        on_press=partial(self.Udalit_Vizov_Vvedite_Imya, z)))
+    def add_player(self):
+        if self.kazak==True:
+            screen_manager=self.root.ids["screen_manager"]
+            if screen_manager.current=="igrok_screen":
+                self.click+=1
+                k=0
+                d=0
+                if self.click==4:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Төртінің атын енгізіңіз ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k)))
+
+                if self.click==5:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Бесеуінің атын енгізіңіз ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==6:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Алтыншының атын енгізіңіз",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==7:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Жетіншінің атын енгізіңіз ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==8:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Сегізінің атын енгізіңіз ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==9:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Тоғызыншының атын енгізіңіз ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==10:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Ондықтың атын енгізіңіз ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                
+                if self.click>10:
+                    z=0
+                    self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                    self.vvedite_imya.add_widget(ImageButton(source="kz/KZ_Выбрано_максимальное_кол_во_игроков.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                                on_press=partial(self.Udalit_Vizov_Vvedite_Imya, z)))
+        else:
+            screen_manager=self.root.ids["screen_manager"]
+            if screen_manager.current=="igrok_screen":
+                self.click+=1
+                k=0
+                d=0
+                if self.click==4:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 4-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k)))
+
+                if self.click==5:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 5-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==6:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 6-ого",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==7:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 7-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==8:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 8-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==9:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 9-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                if self.click==10:
+                    self.chet.append(0)
+                    A=self.root.ids["igrok_screen"].ids["IGROKI"]
+                    A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
+                            ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
+                
+                if self.click>10:
+                    z=0
+                    self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                    self.vvedite_imya.add_widget(ImageButton(source="Vnimanie.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                                on_press=partial(self.Udalit_Vizov_Vvedite_Imya, z)))
+        
     
-    
+    def inst1(self):
+        webbrowser.open("https://www.instagram.com/rusyacapone/")
+    def inst2(self):
+        webbrowser.open("https://www.instagram.com/nexyeviy/")
+    def pochta(self):
+        webbrowser.open("mailto:LegerementStudio@gmail.com")
     def pravila(self):
         pass
     
     def proverka2(self,name,id):
-        if self.v==2:
-            self.v+=1
-        m=0
-        pro=id
-        for i in range (3):
-            if len(self.imena)<=3:
-                Imya=self.root.ids["igrok_screen"].ids["igrok"+str(i+1)]
-                self.imena.append(Imya.text)
-        self.igroki_4_10.append(id)
-        self.imena.append(pro.text)
-        
-        if pro.text=="":
-            self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-            self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
-                        on_press=partial(self.Udalit_Vizov_Vvedite_Imya, m)))
+        if self.kazak==True:
+            if self.v==2:
+                self.v+=1
+            m=0
+            pro=id
+            for i in range (3):
+                if len(self.imena)<=3:
+                    Imya=self.root.ids["igrok_screen"].ids["igrok"+str(i+1)]
+                    self.imena.append(Imya.text)
+            self.igroki_4_10.append(id)
+            self.imena.append(pro.text)
+            
+            if pro.text=="":
+                self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                self.vvedite_imya.add_widget(ImageButton(source="kz/KZ Введите имя.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                            on_press=partial(self.Udalit_Vizov_Vvedite_Imya, m)))
+            else:
+                self.v+=1
         else:
-            self.v+=1
+            if self.v==2:
+                self.v+=1
+            m=0
+            pro=id
+            for i in range (3):
+                if len(self.imena)<=3:
+                    Imya=self.root.ids["igrok_screen"].ids["igrok"+str(i+1)]
+                    self.imena.append(Imya.text)
+            self.igroki_4_10.append(id)
+            self.imena.append(pro.text)
+            
+            if pro.text=="":
+                self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                            on_press=partial(self.Udalit_Vizov_Vvedite_Imya, m)))
+            else:
+                self.v+=1
         
     def proverka3(self):
         if self.v == self.click:
@@ -187,30 +366,56 @@ class MainApp(App):
         
 
     def proverka(self):
-        r=0
-        l=0
-        for i in  range(self.click):
-            if self.click<=3:    
-                self.nomer+=1
-                Imya=self.root.ids["igrok_screen"].ids["igrok"+str(self.nomer)]
-                self.imena.append(Imya.text)
+        if self.kazak==True:
+            r=0
+            l=0
+            for i in  range(self.click):
+                if self.click<=3:    
+                    self.nomer+=1
+                    Imya=self.root.ids["igrok_screen"].ids["igrok"+str(self.nomer)]
+                    self.imena.append(Imya.text)
+                    
+
+                    if Imya.text=="":
+                        
+                        self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                        self.vvedite_imya.add_widget(ImageButton(source="kz/KZ Введите имя.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                            on_press=partial(self.Udalit_Vizov_Vvedite_Imya, l)))
+                           
+                        
+                        break
+                    else:
+                        r+=1
+            if r==3 and self.click==3:
+                app.change_screen("kategorii_screen")   
+
                 
-
-                if Imya.text=="":
+            self.nomer=0 
+        else:
+            r=0
+            l=0
+            for i in  range(self.click):
+                if self.click<=3:    
+                    self.nomer+=1
+                    Imya=self.root.ids["igrok_screen"].ids["igrok"+str(self.nomer)]
+                    self.imena.append(Imya.text)
                     
-                    self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-                    self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
-                        on_press=partial(self.Udalit_Vizov_Vvedite_Imya, l)))
-                       
-                    
-                    break
-                else:
-                    r+=1
-        if r==3 and self.click==3:
-            app.change_screen("kategorii_screen")   
 
-            
-        self.nomer=0 
+                    if Imya.text=="":
+                        
+                        self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                        self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                            on_press=partial(self.Udalit_Vizov_Vvedite_Imya, l)))
+                           
+                        
+                        break
+                    else:
+                        r+=1
+            if r==3 and self.click==3:
+                app.change_screen("kategorii_screen")   
+
+                
+            self.nomer=0 
     def Udalit_Vizov_Vvedite_Imya(self,img,widget_id):
         self.Udalit=widget_id
 
@@ -242,12 +447,18 @@ class MainApp(App):
             self.kategor.append("back/M.png")
         if Kat18.active==True:
             self.kategor.append("back/18.png")
-        if self.kategor==[]:
-            self.viberite_kategor=self.root.ids["kategorii_screen"].ids["kategor_float"]
-            self.viberite_kategor.add_widget(ImageButton(source="k.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
-                on_press=partial(self.Udalit_Vizov_Vvedite_Imya1, l)))
+        if self.kategor==[] :
+            if self.kazak==False:
+                self.viberite_kategor=self.root.ids["kategorii_screen"].ids["kategor_float"]
+                self.viberite_kategor.add_widget(ImageButton(source="k.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                    on_press=partial(self.Udalit_Vizov_Vvedite_Imya1, l)))
+            else:
+                self.viberite_kategor=self.root.ids["kategorii_screen"].ids["kategor_float"]
+                self.viberite_kategor.add_widget(ImageButton(source="kz/KZ Выберите категорию.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                    on_press=partial(self.Udalit_Vizov_Vvedite_Imya1, l)))
         else:
-             app.change_screen("vibor_screen")  
+             app.change_screen("vibor_screen")
+
         
 
         karta1=self.root.ids["vibor_screen"].ids["karta1"]
@@ -288,54 +499,97 @@ class MainApp(App):
            
             if self.skolko1==self.click:
                 app.leader()
-            if self.kakoy<4:
+            if self.kakoy<4 and self.kazak==False:
                 self.te=self.root.ids["igrok_screen"].ids["igrok"+str(self.kakoy)]
                 self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
                 self.hodila.text="Теперь ходит" +"    "  +  "\n"+ "      " + self.te.text
                 app.change_screen("sled_screen")  
+            if self.kakoy<4 and self.kazak==True:
+                self.te=self.root.ids["igrok_screen"].ids["igrok"+str(self.kakoy)]
+                self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
+                self.hodila.text="Қазір серуендейді" +"    "  +  "\n"+ "      " + self.te.text
+                app.change_screen("sled_screen")  
         
-        if self.click<=10 and self.click>3 and self.skolko>3:
+        if self.click<=10 and self.click>3 and self.skolko>3 and self.kazak==False:
             if self.skolko-1==self.click:
                 app.leader()
             else:
                 self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
                 self.hodila.text="Теперь ходит" +"    " + "\n"+ "      " + self.igroki_4_10[self.lol].text
                 app.change_screen("sled_screen")
+        if self.click<=10 and self.click>3 and self.skolko>3 and self.kazak==True:
+            if self.skolko-1==self.click:
+                app.leader()
+            else:
+                self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
+                self.hodila.text="Қазір серуендейді" +"    " + "\n"+ "      " + self.igroki_4_10[self.lol].text
+                app.change_screen("sled_screen")
     def leader(self):
         
-        
-        d=0
-        z=0
-        app.change_screen("leader_screen")
-        self.rezultat=self.root.ids["leader_screen"].ids["skolkoza"]
-        self.rezultat.text="Ответов ЗА:" +"   " + str(self.za)
-        for i in self.otveti:
-            
-            if i==self.za:
-                k=self.chet[d]
-                self.chet.pop(d)
-                self.chet.insert(d,k+2)
-            if i+1==self.za or i-1==self.za:
-                k=self.chet[d]
-                self.chet.pop(d)
-                self.chet.insert(d,k+1)
-            d+=1
-        for j in self.chet:
+        if self.kazak==False:
+            d=0
+            z=0
+            app.change_screen("leader_screen")
+            self.rezultat=self.root.ids["leader_screen"].ids["skolkoza"]
+            self.rezultat.text="Ответов ЗА:" +"   " + str(self.za)
+            for i in self.otveti:
+                
+                if i==self.za:
+                    k=self.chet[d]
+                    self.chet.pop(d)
+                    self.chet.insert(d,k+2)
+                if i+1==self.za or i-1==self.za:
+                    k=self.chet[d]
+                    self.chet.pop(d)
+                    self.chet.insert(d,k+1)
+                d+=1
+            for j in self.chet:
 
-            if self.chet[z]==22 or self.chet[z]>22:
-                app.change_screen("final_screen")
-                app.priz()
-                victor=self.root.ids["final_screen"].ids["pobeda"]
-                victor.text=self.imena[z] +" "+"!"
-            z+=1
-        self.board=self.root.ids["leader_screen"].ids["leaderboard"]
-        
-        for i in range(self.click):
-            imeno=Label(text=str(self.imena[i]),font_size=40,bold=True,color=[0,0,0,1])
-            kek=Label(text=str(self.chet[i]),font_size=40,bold=True,color=[0,0,0,1])
-            self.board.add_widget(imeno)
-            self.board.add_widget(kek)
+                if self.chet[z]==22 or self.chet[z]>22:
+                    app.change_screen("final_screen")
+                    app.priz()
+                    victor=self.root.ids["final_screen"].ids["pobeda"]
+                    victor.text=self.imena[z] +" "+"!"
+                z+=1
+            self.board=self.root.ids["leader_screen"].ids["leaderboard"]
             
+            for i in range(self.click):
+                imeno=Label(text=str(self.imena[i]),font_size=50,bold=True,color=[0,0,0,1])
+                kek=Label(text=str(self.chet[i]),font_size=50,bold=True,color=[0,0,0,1])
+                self.board.add_widget(imeno)
+                self.board.add_widget(kek)
+        if self.kazak==True:
+            d=0
+            z=0
+            app.change_screen("leader_screen")
+            self.rezultat=self.root.ids["leader_screen"].ids["skolkoza"]
+            self.rezultat.text="Жауаптар үшін:" +"   " + str(self.za)
+            for i in self.otveti:
+                
+                if i==self.za:
+                    k=self.chet[d]
+                    self.chet.pop(d)
+                    self.chet.insert(d,k+2)
+                if i+1==self.za or i-1==self.za:
+                    k=self.chet[d]
+                    self.chet.pop(d)
+                    self.chet.insert(d,k+1)
+                d+=1
+            for j in self.chet:
+
+                if self.chet[z]==22 or self.chet[z]>22:
+                    app.change_screen("final_screen")
+                    app.priz()
+                    victor=self.root.ids["final_screen"].ids["pobeda"]
+                    victor.text=self.imena[z] +" "+"!"
+                z+=1
+            self.board=self.root.ids["leader_screen"].ids["leaderboard"]
+            
+            for i in range(self.click):
+                imeno=Label(text=str(self.imena[i]),font_size=50,bold=True,color=[0,0,0,1])
+                kek=Label(text=str(self.chet[i]),font_size=50,bold=True,color=[0,0,0,1])
+                self.board.add_widget(imeno)
+                self.board.add_widget(kek)
             
         
             
@@ -359,18 +613,29 @@ class MainApp(App):
            
             if self.skolko1==self.click:
                 app.leader()
-            if self.kakoy<4:
+            if self.kakoy<4 and self.kazak==False:
                 self.te=self.root.ids["igrok_screen"].ids["igrok"+str(self.kakoy)]
                 self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
                 self.hodila.text="Теперь ходит" +"    " + "\n"+ "      " +  self.te.text
                 app.change_screen("sled_screen")  
-        
-        if self.click<=10 and self.click>3 and self.skolko>3:
+            if self.kakoy<4 and self.kazak==True:
+                self.te=self.root.ids["igrok_screen"].ids["igrok"+str(self.kakoy)]
+                self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
+                self.hodila.text="Қазір серуендейді" +"    " + "\n"+ "      " +  self.te.text
+                app.change_screen("sled_screen")
+        if self.click<=10 and self.click>3 and self.skolko>3 and self.kazak==False:
             if self.skolko-1==self.click:
                 app.leader()
             else:
                 self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
                 self.hodila.text="Теперь ходит" +"    " + "\n"+ "      " + self.igroki_4_10[self.lol].text
+                app.change_screen("sled_screen")
+        if self.click<=10 and self.click>3 and self.skolko>3 and self.kazak==True:
+            if self.skolko-1==self.click:
+                app.leader()
+            else:
+                self.hodila=self.root.ids["sled_screen"].ids["teper_hodit"]
+                self.hodila.text="Қазір серуендейді" +"    " + "\n"+ "      " + self.igroki_4_10[self.lol].text
                 app.change_screen("sled_screen")
     def nextquestion(self):
         self.board=self.root.ids["leader_screen"].ids["leaderboard"]
@@ -397,121 +662,231 @@ class MainApp(App):
         karta1=self.root.ids["vibor_screen"].ids["karta1"]
        
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
-       
-        if karta1.source=="back/S.png":
-            files = os.listdir("Vopros/S")
-            index = random.randrange(0, len(files))
-            vopros.source="Vopros/S" + "/" + files[index]
-           
-        if karta1.source=="back/D.png":
-            files = os.listdir("Vopros/D")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/D" + "/" + files[index]
-            
-        if karta1.source=="back/M.png":
-            files = os.listdir("Vopros/M")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/M" + "/" + files[index]
-            
-        if karta1.source=="back/P.png":
-            files = os.listdir("Vopros/P")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/P" + "/" + files[index]
-            
-        if karta1.source=="back/V.png":
-            files = os.listdir("Vopros/V")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/V" + "/" + files[index]
-            
-        if karta1.source=="back/18.png":
-            files = os.listdir("Vopros/I")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/I" + "/" + files[index]
-        app.change_screen("vopros_screen")
-        
+        if self.kazak==False:
+            if karta1.source=="back/S.png":
+                files = os.listdir("Vopros/S")
+                index = random.randrange(0, len(files))
+                vopros.source="Vopros/S" + "/" + files[index]
+               
+            if karta1.source=="back/D.png":
+                files = os.listdir("Vopros/D")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/D" + "/" + files[index]
+                
+            if karta1.source=="back/M.png":
+                files = os.listdir("Vopros/M")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/M" + "/" + files[index]
+                
+            if karta1.source=="back/P.png":
+                files = os.listdir("Vopros/P")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/P" + "/" + files[index]
+                
+            if karta1.source=="back/V.png":
+                files = os.listdir("Vopros/V")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/V" + "/" + files[index]
+                
+            if karta1.source=="back/18.png":
+                files = os.listdir("Vopros/I")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/I" + "/" + files[index]
+            app.change_screen("vopros_screen")
+        else:
+            if karta1.source=="back/S.png":
+                files = os.listdir("kz/Vopros/S")
+                index = random.randrange(0, len(files))
+                vopros.source="kz/Vopros/S" + "/" + files[index]
+               
+            if karta1.source=="back/D.png":
+                files = os.listdir("kz/Vopros/D")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/D" + "/" + files[index]
+                
+            if karta1.source=="back/M.png":
+                files = os.listdir("kz/Vopros/M")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/M" + "/" + files[index]
+                
+            if karta1.source=="back/P.png":
+                files = os.listdir("kz/Vopros/P")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/P" + "/" + files[index]
+                
+            if karta1.source=="back/V.png":
+                files = os.listdir("kz/Vopros/V")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/V" + "/" + files[index]
+                
+            if karta1.source=="back/18.png":
+                files = os.listdir("kz/Vopros/I")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/I" + "/" + files[index]
+            app.change_screen("vopros_screen")
         
     def vopros2(self):       
         karta2=self.root.ids["vibor_screen"].ids["karta2"]                
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
-        if karta2.source=="back/S.png":
-            files = os.listdir("Vopros/S")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/S" + "/" + files[index]
-            
-        if karta2.source=="back/D.png":
-            files = os.listdir("Vopros/D")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/D" + "/" + files[index]
-            
-        if karta2.source=="back/M.png":
-            files = os.listdir("Vopros/M")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/M" + "/" + files[index]
-           
-        if karta2.source=="back/P.png":
-            files = os.listdir("Vopros/P")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/P" + "/" + files[index]
-            
-        if karta2.source=="back/V.png":
-            files = os.listdir("Vopros/V")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/V" + "/" + files[index]
-            
-        if karta2.source=="back/18.png":
-            files = os.listdir("Vopros/I")
-            index = random.randrange(0, len(files))
-            vopros.source="Vopros/I" + "/" + files[index]
-        app.change_screen("vopros_screen")
+        if self.kazak==False:
+            if karta2.source=="back/S.png":
+                files = os.listdir("Vopros/S")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/S" + "/" + files[index]
+                
+            if karta2.source=="back/D.png":
+                files = os.listdir("Vopros/D")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/D" + "/" + files[index]
+                
+            if karta2.source=="back/M.png":
+                files = os.listdir("Vopros/M")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/M" + "/" + files[index]
+               
+            if karta2.source=="back/P.png":
+                files = os.listdir("Vopros/P")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/P" + "/" + files[index]
+                
+            if karta2.source=="back/V.png":
+                files = os.listdir("Vopros/V")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/V" + "/" + files[index]
+                
+            if karta2.source=="back/18.png":
+                files = os.listdir("Vopros/I")
+                index = random.randrange(0, len(files))
+                vopros.source="Vopros/I" + "/" + files[index]
+            app.change_screen("vopros_screen")
+        else:
+            if karta2.source=="back/S.png":
+                files = os.listdir("kz/Vopros/S")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/S" + "/" + files[index]
+                
+            if karta2.source=="back/D.png":
+                files = os.listdir("kz/Vopros/D")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/D" + "/" + files[index]
+                
+            if karta2.source=="back/M.png":
+                files = os.listdir("kz/Vopros/M")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/M" + "/" + files[index]
+               
+            if karta2.source=="back/P.png":
+                files = os.listdir("kz/Vopros/P")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/P" + "/" + files[index]
+                
+            if karta2.source=="back/V.png":
+                files = os.listdir("kz/Vopros/V")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/V" + "/" + files[index]
+                
+            if karta2.source=="back/18.png":
+                files = os.listdir("kz/Vopros/I")
+                index = random.randrange(0, len(files))
+                vopros.source="kz/Vopros/I" + "/" + files[index]
+            app.change_screen("vopros_screen")
     def vopros3(self):       
         karta3=self.root.ids["vibor_screen"].ids["karta3"]                
         vopros=self.root.ids["vopros_screen"].ids["vopros"]
-        if karta3.source=="back/S.png":
-            files = os.listdir("Vopros/S")
-            index = random.randrange(0, len(files))
+        if self.kazak==False:
+            if karta3.source=="back/S.png":
+                files = os.listdir("Vopros/S")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/S" + "/" + files[index]
+                
+            if karta3.source=="back/D.png":
+                files = os.listdir("Vopros/D")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/D" + "/" + files[index]
+                
+            if karta3.source=="back/M.png":
+                files = os.listdir("Vopros/M")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/M" + "/" + files[index]
+                
+            if karta3.source=="back/P.png":
+                files = os.listdir("Vopros/P")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/P" + "/" + files[index]
+                
+            if karta3.source=="back/V.png":
+                files = os.listdir("Vopros/V")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/V" + "/" + files[index]
+                
+            if karta3.source=="back/18.png":
+                files = os.listdir("Vopros/I")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/I" + "/" + files[index]
+            app.change_screen("vopros_screen")
+        else:
+            if karta3.source=="back/S.png":
+                files = os.listdir("kz/Vopros/S")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/S" + "/" + files[index]
             
-            vopros.source="Vopros/S" + "/" + files[index]
-            
-        if karta3.source=="back/D.png":
-            files = os.listdir("Vopros/D")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/D" + "/" + files[index]
-            
-        if karta3.source=="back/M.png":
-            files = os.listdir("Vopros/M")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/M" + "/" + files[index]
-            
-        if karta3.source=="back/P.png":
-            files = os.listdir("Vopros/P")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/P" + "/" + files[index]
-            
-        if karta3.source=="back/V.png":
-            files = os.listdir("Vopros/V")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/V" + "/" + files[index]
-            
-        if karta3.source=="back/18.png":
-            files = os.listdir("Vopros/I")
-            index = random.randrange(0, len(files))
-            
-            vopros.source="Vopros/I" + "/" + files[index]
-        app.change_screen("vopros_screen")
+            if karta3.source=="back/D.png":
+                files = os.listdir("kz/Vopros/D")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/D" + "/" + files[index]
+                
+            if karta3.source=="back/M.png":
+                files = os.listdir("kz/Vopros/M")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/M" + "/" + files[index]
+                
+            if karta3.source=="back/P.png":
+                files = os.listdir("kz/Vopros/P")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="Vopros/P" + "/" + files[index]
+                
+            if karta3.source=="back/V.png":
+                files = os.listdir("kz/Vopros/V")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/V" + "/" + files[index]
+                
+            if karta3.source=="back/18.png":
+                files = os.listdir("kz/Vopros/I")
+                index = random.randrange(0, len(files))
+                
+                vopros.source="kz/Vopros/I" + "/" + files[index]
+            app.change_screen("vopros_screen")
 
 app = MainApp()
 import bugs

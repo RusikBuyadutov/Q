@@ -1,0 +1,30 @@
+<Pravila4>:
+	FloatLayout:
+		canvas.before:
+			Rectangle:
+				
+				pos:self.pos
+				size:self.size	
+				source:"rules/Pravila4.png"
+		ImageButton:
+			pos_hint:{"top":.98,"right":.92}
+			size_hint:.1,.1
+			source:"Krestik.png"
+			on_press:
+				app.Klik()
+			on_release:
+				app.change_screen("menu_screen")
+		ImageButton:
+			pos_hint:{"top":.10,"right":.85}
+			size_hint:.2,.1
+			source:"StrelkaNapravo.png"
+			on_press:
+				app.Klik()
+				app.change_pravila("pravila5_screen")
+		ImageButton:
+			pos_hint:{"top":.10,"right":.35}
+			size_hint:.2,.1
+			source:"StrelkaNalevo.png"
+			on_press:
+				app.Klik()
+				app.change_pravila("pravila3_screen")

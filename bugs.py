@@ -41,10 +41,6 @@ class WeakMethod:
         '''Returns True if the referenced callable was a bound method and
         the instance no longer exists. Otherwise, return False.
         '''
-    
-
-
-
         try:
             return self.proxy is not None and not bool(dir(self.proxy))
         except ReferenceError:

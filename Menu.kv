@@ -13,6 +13,7 @@
 			pos_hint:{"top":.625,"left":1}
 			size_hint:1,.4
 			ImageButton:
+				id:knopkaigrat
 				allow_stretch: True
 				source:"Igrat.png"
 				on_press:
@@ -21,25 +22,27 @@
 					app.change_screen("igrok_screen")
 			
 			ImageButton:
+				id:knopkapravila
 				allow_stretch: True
 				source:"Pravila.png"
 				on_press:
 					app.Klik()
 				on_release:
-					app.change_screen("pravila_screen")
+					app.pravilala()
 			ImageButton:
+				id:knopkayazik
 				allow_stretch: True
 				source:"Yazik.png"
 				on_press:
 					app.Klik()
 				on_release:
-					print("YAZIK")
-					app.change_screen("final_screen")
-					app.priz()
+					app.kazah()
+					
+					
 		GridLayout:
 			rows:1
 			spacing:30
-			padding:[root.width/3,0,root.width/3,0]
+			padding:[root.width/3.2,0,root.width/3.2,0]
 			pos_hint:{"top":.20,"left":1}
 			size_hint:1,.2
 			ImageButton:			
@@ -59,8 +62,10 @@
 					app.Klik()
 				on_release:
 					print("REKLAMA")
+					
 			ImageButton:
 				source:"inf.png"
 				on_press:
 					app.Klik()
+					app.change_screen("info_screen")
 			
