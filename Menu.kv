@@ -1,5 +1,17 @@
 <Menu>:
 	FloatLayout:
+		ImageButton:
+			pos_hint:{"top":1,"left":1}
+			size_hint:.1,.05
+			on_press:
+				app.change_screen("menudark_screen")
+		ImageButton:
+			pos_hint:{"top":.67,"right":.8}
+			size_hint:.08,.03
+			on_press:
+				app.smeh1()
+	FloatLayout:
+
 		canvas.before:
 			Rectangle:
 				pos:self.pos
@@ -20,6 +32,7 @@
 					app.Klik()
 				on_release:
 					app.change_screen("igrok_screen")
+					app.call_rek()
 			
 			ImageButton:
 				id:knopkapravila
@@ -42,7 +55,7 @@
 		GridLayout:
 			rows:1
 			spacing:30
-			padding:[root.width/3.2,0,root.width/3.2,0]
+			padding:[root.width/3.2,0,root.width/3.2,100]
 			pos_hint:{"top":.20,"left":1}
 			size_hint:1,.2
 			ImageButton:			
@@ -61,11 +74,11 @@
 				on_press:
 					app.Klik()
 				on_release:
-					print("REKLAMA")
-					
+					app.priz()
+					app.change_screen("final_screen")
 			ImageButton:
 				source:"inf.png"
 				on_press:
 					app.Klik()
-					app.change_screen("info_screen")
+					app.infoscr()
 			

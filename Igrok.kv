@@ -45,25 +45,26 @@
 			GridLayout:
 				size_hint_y: None
             	height: self.minimum_height
-            	row_default_height: '100dp'
+            	row_default_height: '30dp'
             	row_force_default: True
 				
 				id:IGROKI
 				cols:1
 					
 				spacing:40
-				padding:root.width/6,10,root.width/6,170
+				padding:root.width/6,10,root.width/6,300
 				TextInput:
 					id:igrok1
 					font_size:40
 					halign: 'center'
-		            valign: 'middle'
+		      
 					background_color:(255/255, 158/255, 128/255, 1)
 					hint_text:"Введите имя 1-ого"
 					hint_text_color:0,0,0,1
 					multiline:False					
 					background_normal:"Knopka.png"
 					background_active:"Knopka.png"
+					
 						
 				TextInput:
 					id:igrok2

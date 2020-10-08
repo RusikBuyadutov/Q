@@ -1,0 +1,41 @@
+<Label>:
+	font_name:"10062.ttf"
+<Infokz>:
+	FloatLayout:
+		canvas.before:
+			Rectangle:
+				pos:self.pos
+				size:self.size	
+				source:"kz/inff.png"
+		ImageButton:
+			pos_hint:{"top":.98,"right":.92}
+			size_hint:.1,.1
+			source:"Krestik.png"
+			on_press:
+				app.Klik()
+			on_release:
+				app.change_screen("menu_screen")
+		
+
+		ImageButton:
+			pos_hint:{"top":.37,"right":.3}
+			size_hint:.1,.1
+			source:"inst.png"
+			on_press:
+				app.inst1()
+
+		
+		ImageButton:
+			pos_hint:{"top":.29,"right":.3}
+			size_hint:.1,.1
+			source:"inst.png"
+			on_press:
+				app.inst2()
+
+		 
+		ImageButton:
+			pos_hint:{"top":.58,"right":.55}
+			size_hint:.1,.1
+			source:"mail.png"
+			on_press:
+				app.pochta()

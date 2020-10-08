@@ -59,6 +59,8 @@ class Pravila5kz(Screen):
     pass
 class Pravila6kz(Screen):
     pass
+class Pravila7kz(Screen):
+    pass
 class Vibor(Screen):
     pass
 class Vopros(Screen):
@@ -71,6 +73,12 @@ class Final(Screen):
     pass
 class Info(Screen):
     pass
+class Pravila7(Screen):
+    pass
+class Infokz(Screen):
+    pass
+class menudark(Screen):
+    pass
 
 
 GUI=Builder.load_file("Main.kv")    
@@ -78,14 +86,15 @@ class MainApp(App):
     global sound_menu
     global igroki_4_10
     global prizz
+    global idiot
+    global smehh
+    smehh=SoundLoader.load("smeh.wav")
     prizz=SoundLoader.load("p.wav")
-
+    idiot=SoundLoader.load("tupoy.wav")
     sound_menu=SoundLoader.load("ZVUK.wav")
     def build(self):
-        self.ads = KivMob(TestIds.APP)
-        self.ads.new_banner(TestIds.BANNER, top_pos=True)
-        self.ads.request_banner()
-        self.ads.show_banner()
+        self.iriska=0
+        self.tq=0
         self.v=2
         self.lol=-3
         self.click=3
@@ -103,7 +112,24 @@ class MainApp(App):
         self.chet=[0,0,0]
         self.imena=[]
         self.kazak=False
+        self.ads = KivMob(TestIds.APP)
+        self.ads.new_banner(TestIds.BANNER, top_pos=False)
+        self.ads.request_banner()
+        self.ads.show_banner()
+        self.ads = KivMob(TestIds.APP)
+        self.ads.new_interstitial(TestIds.INTERSTITIAL)
+        self.ads.request_interstitial()
         return GUI
+    def call_rek(self):
+        lambda a:self.ads.show_interstitial()
+    def on_resume(self):
+        self.ads.request_interstitial()
+    def infoscr(self):
+        if self.kazak==True:
+            app.change_screen("infokz_screen")
+        if self.kazak==False:
+            app.change_screen("info_screen")
+
     def kazah(self):
         if self.kazak==False:
             self.kazak=True
@@ -131,18 +157,18 @@ class MainApp(App):
         kzsledvopros=self.root.ids["leader_screen"].ids["sledvopros"]
         if self.kazak==True:
             
-            kzsledvopros.source="kz/KZ Следующий ход.png"
-            kzigrat.source="kz/KZ Играть.png"
-            kzprotiv.source="kz/KZ Против.png"
-            kzza.source="kz/KZ За.png"
-            kzpravila.source="kz/KZ Правила.png"
-            kzyazik.source="kz/KZ Язык.png"
-            kzigrokprodoljit.source="kz/KZ Продолжит.png"
-            kzviborvopros.source="kz/KZ Выберите вопрос.png"
+            kzsledvopros.source="kz/nexthod.png"
+            kzigrat.source="kz/play.png"
+            kzprotiv.source="kz/versus.png"
+            kzza.source="kz/za.png"
+            kzpravila.source="kz/prav.png"
+            kzyazik.source="kz/yaz.png"
+            kzigrokprodoljit.source="kz/prodoljit.png"
+            kzviborvopros.source="kz/chooseact.png"
             Kz18.source="kz/kat/intim.png"
             kzigrok1.hint_text="Біріншісінің атын енгізіңіз"
             KzMor.source="kz/kat/moral.png"
-            kzstart.source="kz/KZ Начать игру.png"
+            kzstart.source="kz/start.png"
             KzVec.source="kz/kat/vech.png"
             kzigrok2.hint_text="Екіншісінің атын енгізіңіз"
             kzigrok3.hint_text="Үшіншісінің атын енгізіңіз"
@@ -168,6 +194,11 @@ class MainApp(App):
             KzDobr.source="kategory/Dobrye.png"
             KzPol.source="kategory/Politika.png"
             KzSkelet.source="kategory/Skelet.png"
+    def smeh1(self):
+        self.iriska+=1
+        if self.iriska==5 or self.iriska==10:
+            smehh.volume=".3"
+            smehh.play()
     def Klik(self):
         sound_klik=SoundLoader.load("zvuk_klik.wav")
         sound_klik.volume=".2"
@@ -261,7 +292,7 @@ class MainApp(App):
                 if self.click>10:
                     z=0
                     self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-                    self.vvedite_imya.add_widget(ImageButton(source="kz/KZ_Выбрано_максимальное_кол_во_игроков.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                    self.vvedite_imya.add_widget(ImageButton(source="kz/toomuch.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
                                 on_press=partial(self.Udalit_Vizov_Vvedite_Imya, z)))
         else:
             screen_manager=self.root.ids["screen_manager"]
@@ -269,6 +300,7 @@ class MainApp(App):
                 self.click+=1
                 k=0
                 d=0
+                
                 if self.click==4:
                     self.chet.append(0)
                     A=self.root.ids["igrok_screen"].ids["IGROKI"]
@@ -306,11 +338,22 @@ class MainApp(App):
                     A.add_widget(TextInput(font_size=40,halign="center",valign="center",hint_text="Введите имя 10-ого ",background_color=(255/255, 158/255, 128/255, 1),multiline=False,background_normal="Knopka.png"
                             ,background_active="Knopka.png",hint_text_color=(0,0,0,1),on_text_validate=partial(self.proverka2, k) ))
                 
-                if self.click>10:
+                if self.click>10 and self.tq<=3:
                     z=0
+                    self.tq=self.tq+1
                     self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
                     self.vvedite_imya.add_widget(ImageButton(source="Vnimanie.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
                                 on_press=partial(self.Udalit_Vizov_Vvedite_Imya, z)))
+                    self.click=10
+                    
+                if self.click>=10 and self.tq>=4:
+                    tupp=0
+                    self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                    self.vvedite_imya.add_widget(ImageButton(source="idiot.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                                on_press=partial(self.Udalit_Vizov_Vvedite_Imya, tupp)))
+                    self.click=10
+                    idiot.volume=".4"
+                    idiot.play()
         
     
     def inst1(self):
@@ -337,7 +380,7 @@ class MainApp(App):
             
             if pro.text=="":
                 self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-                self.vvedite_imya.add_widget(ImageButton(source="kz/KZ Введите имя.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                self.vvedite_imya.add_widget(ImageButton(source="kz/insertname.png",size_hint=(.6,.6),pos_hint={"top":.8,"right":.8},
                             on_press=partial(self.Udalit_Vizov_Vvedite_Imya, m)))
             else:
                 self.v+=1
@@ -355,14 +398,20 @@ class MainApp(App):
             
             if pro.text=="":
                 self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-                self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(.6,.6),pos_hint={"top":.8,"right":.8},
                             on_press=partial(self.Udalit_Vizov_Vvedite_Imya, m)))
             else:
                 self.v+=1
         
     def proverka3(self):
+        m=0
         if self.v == self.click:
             app.change_screen("kategorii_screen")
+        else:
+            if self.click>3:
+                self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
+                self.vvedite_imya.add_widget(ImageButton(source="enter.png",size_hint=(.6,.6),pos_hint={"top":.8,"right":.8},
+                                on_press=partial(self.Udalit_Vizov_Vvedite_Imya, m)))
         
 
     def proverka(self):
@@ -379,7 +428,7 @@ class MainApp(App):
                     if Imya.text=="":
                         
                         self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-                        self.vvedite_imya.add_widget(ImageButton(source="kz/KZ Введите имя.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                        self.vvedite_imya.add_widget(ImageButton(source="kz/insertname.png",size_hint=(.6,.6),pos_hint={"top":.8,"right":.8},allow_stretch=True,keep_ratio=False,
                             on_press=partial(self.Udalit_Vizov_Vvedite_Imya, l)))
                            
                         
@@ -404,7 +453,7 @@ class MainApp(App):
                     if Imya.text=="":
                         
                         self.vvedite_imya=self.root.ids["igrok_screen"].ids["igrokfloat"]
-                        self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(.9,.9),pos_hint={"top":.95,"right":.95},allow_stretch=True,keep_ratio=False,
+                        self.vvedite_imya.add_widget(ImageButton(source="IMYA.png",size_hint=(.6,.6),pos_hint={"top":.8,"right":.8},allow_stretch=True,keep_ratio=False,
                             on_press=partial(self.Udalit_Vizov_Vvedite_Imya, l)))
                            
                         
@@ -450,11 +499,11 @@ class MainApp(App):
         if self.kategor==[] :
             if self.kazak==False:
                 self.viberite_kategor=self.root.ids["kategorii_screen"].ids["kategor_float"]
-                self.viberite_kategor.add_widget(ImageButton(source="k.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                self.viberite_kategor.add_widget(ImageButton(source="k.png",size_hint=(.6,.6),pos_hint={"top":.8,"right":.8},
                     on_press=partial(self.Udalit_Vizov_Vvedite_Imya1, l)))
             else:
                 self.viberite_kategor=self.root.ids["kategorii_screen"].ids["kategor_float"]
-                self.viberite_kategor.add_widget(ImageButton(source="kz/KZ Выберите категорию.png",size_hint=(1,1),pos_hint={"top":1,"right":1},
+                self.viberite_kategor.add_widget(ImageButton(source="kz/choosekat.png",size_hint=(.6,.6),pos_hint={"top":.8,"right":.8},
                     on_press=partial(self.Udalit_Vizov_Vvedite_Imya1, l)))
         else:
              app.change_screen("vibor_screen")
@@ -549,7 +598,7 @@ class MainApp(App):
                     app.change_screen("final_screen")
                     app.priz()
                     victor=self.root.ids["final_screen"].ids["pobeda"]
-                    victor.text=self.imena[z] +" "+"!"
+                    victor.text=self.imena[z] 
                 z+=1
             self.board=self.root.ids["leader_screen"].ids["leaderboard"]
             
