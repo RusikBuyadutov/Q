@@ -16,14 +16,14 @@ from kivy.uix.screenmanager import FallOutTransition
 from kivy.uix.screenmanager import RiseInTransition
 from kivy.uix.textinput import TextInput
 from kivy.graphics import Color
-from  kivy.uix.popup import Popup
-from  kivy.uix.label import Label
+from kivy.uix.popup import Popup
+from kivy.uix.label import Label
 from kivy.uix.screenmanager import WipeTransition
 from kivy.core.audio import SoundLoader
 from kivy.uix.checkbox import CheckBox
 from kivy.uix.scrollview import ScrollView
 from functools import partial
-from  kivy.uix.gridlayout import GridLayout
+from kivy.uix.gridlayout import GridLayout
 import random
 import os
 
@@ -77,7 +77,7 @@ class Pravila7(Screen):
     pass
 class Infokz(Screen):
     pass
-class menudark(Screen):
+class Menudark(Screen):
     pass
 
 
