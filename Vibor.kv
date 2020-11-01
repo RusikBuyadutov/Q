@@ -4,15 +4,11 @@
 			Rectangle:
 				pos:self.pos
 				size:self.size			
-				source:"primer1.png"
-		Image:
-			id:viborvopros
-			pos_hint:{"top":.99,"right":.75}
-			size_hint:.5,.1
-			source:"Vipiros.png"
+				source:"eng/backfon/choosequestion.png"
+		
 		GridLayout:
 			rows:1
-			pos_hint:{"top":.9,"left":1}
+			pos_hint:{"top":.95,"left":1}
 			size_hint:1,.45
 				
 				
@@ -30,9 +26,40 @@
 					app.Klik()
 		ImageButton:
 			id:karta3
-			pos_hint:{"top":.45,"left":1}
+			pos_hint:{"top":.6,"left":1}
 			size_hint:1,.45
 			source:""
 			on_press:
 				app.vopros3()
 				app.Klik()
+		GridLayout:
+			rows:1
+			spacing:30
+			
+			pos_hint:{"top":.22,"left":1}
+			size_hint:1,.1
+			ImageButton:			
+				id:laws
+				source:"eng/icons/laws0.png"
+				on_release:
+					app.pageinfo()
+				on_press:
+					app.Klik()	
+			ImageButton:
+				id:zvuk6				
+				source:"eng/icons/voloff.png"
+				on_press:
+					app.Klik()	
+				on_release:
+					app.Zvuk()
+			
+			ImageButton:
+				source:"eng/icons/language.png"
+				on_press:
+					app.Klik()
+			ImageButton:
+				source:"eng/icons/help.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.infoscr()

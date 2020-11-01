@@ -1,5 +1,5 @@
 <Label>:
-	font_name:"10062.ttf"
+	font_name:"style.ttf"
 <Final>:
 	FloatLayout:
 
@@ -7,20 +7,55 @@
 			Rectangle:
 				pos:self.pos
 				size:self.size			
-				source:"pobedaa.png"
+				source:"eng/backfon/winner.png"
 		Label:
 			id:pobeda
 			font_size:40
-			pos_hint:{"top":.85,"right":.85}
+			pos_hint:{"top":.95,"right":.85}
 			size_hint:.7,.2
 			color:(0, 0, 0, 1)
 			
 		ImageButton:
-			pos_hint:{"top":.95,"right":.75}
+			id:finishbuttonlol
+			pos_hint:{"top":.3,"right":.75}
 			size_hint:.5,.1
-			source:"vern.png"
+			source:"eng/buttons/finish.png"
 			on_press:
+				app.nextsuk()
+			on_release:
+				app.nextsuk1()
 				app.build()
 				app.change_screen("menu_screen")
 				app.notpriz()
+		GridLayout:
+			rows:1
+			spacing:30
+			
+			pos_hint:{"top":.22,"left":1}
+			size_hint:1,.1
+			ImageButton:			
+				id:laws
+				source:"eng/icons/laws0.png"
+				on_release:
+					app.pageinfo()
+				on_press:
+					app.Klik()	
+			ImageButton:
+				id:zvuk8				
+				source:"eng/icons/voloff.png"
+				on_press:
+					app.Klik()	
+				on_release:
+					app.Zvuk()
+			
+			ImageButton:
+				source:"eng/icons/language.png"
+				on_press:
+					app.Klik()
+			ImageButton:
+				source:"eng/icons/help.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.infoscr()
 		

@@ -1,23 +1,21 @@
 <Label>:
-	font_name:"10062.ttf"
+	font_name:"style.ttf"
 <Sled>:
 	FloatLayout:
 		canvas.before:
 			Rectangle:
 				pos:self.pos
 				size:self.size			
-				source:"hod.png"
+				source:"eng/backfon/nextone.png"
 		Label:
 			id:teper_hodit
 			font_size:50
 			bold:True
 			color:[0,0,0,1]
-			pos_hint:{"top":.8,"right":.8}
-			size_hint:.5,.5
-		ImageButton:
-			pos_hint:{"top":.25,"right":.75}
+			pos_hint:{"top":.32,"right":.7}
 			size_hint:.5,.1
-			source:"Go.png"
-			on_press:
+			on_touch_down:
 				app.change_screen("vopros_screen")
 				app.Klik()
+		
+		

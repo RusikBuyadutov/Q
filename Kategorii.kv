@@ -1,104 +1,123 @@
+
 <Kategorii>:
+	
 	FloatLayout:
 		id:kategor_float
 		canvas.before:
 			Rectangle:
 				pos:self.pos
 				size:self.size			
-				source:"primer1.png"
-		ImageButton:
-			pos_hint:{"top":.99,"right":.94}
-			size_hint:.08,.08
-			source:"Krestik.png"
-			on_press:
-				app.Klik()
-			on_release:
-				app.change_screen("menu_screen")
+				source:"eng/backfon/kategory.png"
+		
 		ImageButton:
 			id:knopkastart
-			pos_hint:{"top":.95,"right":.75}
-			size_hint:.5,.1
-			source:"Start.png"
+			pos_hint:{"top":.3,"left":.1}
+			size_hint:1,.1
+			source:"eng/buttons/ok.png"
 			on_press:
 				app.Klik()	
-				app.kat()	
+				app.ok()
+			on_release:
+				app.ok1()
+				app.kat()
 								
-		ScrollView:
-			pos_hint:{"top":.8,"right":1}
-			size_hint:1,1
-			GridLayout:
-				size_hint_y: None
-		    	height: self.minimum_height
-		    	row_default_height: '65dp'
-		    	row_force_default: True
-				cols:2
-				spacing:0,20
-					
-					
-					
-				padding:0,10,0,150
-				Image:
-					id:s
-					allow_stretch:True
-					keep_ratio:False
-						
-					source:"kategory/Skelet.png"
-				CheckBox:
-					id:KatSkelet
-					background_checkbox_normal:"Net.png"
-					background_checkbox_down:"Da.png"
-					size_hint_x:.15				
-				Image:
-					id:d
-					allow_stretch:True
-					keep_ratio:False
-					source:"kategory/Dobrye.png"
-				CheckBox:
-					id:KatDobr
-					background_checkbox_normal:"Net.png"
-					background_checkbox_down:"Da.png"
-					size_hint_x:.15
-				Image:
-					id:p
-					allow_stretch:True
-					keep_ratio:False
-					source:"kategory/Politika.png"
-				CheckBox:
-					id:KatPol
-					background_checkbox_normal:"Net.png"
-					background_checkbox_down:"Da.png"
-					size_hint_x:.15
-				Image:
-					id:v
-					allow_stretch:True
-					keep_ratio:False
-					source:"kategory/Vecherinka.png"
-				CheckBox:
-					id:KatVec
-					background_checkbox_normal:"Net.png"
-					background_checkbox_down:"Da.png"
-					size_hint_x:.15
-				Image:
-					id:m
-					allow_stretch:True
-					keep_ratio:False
-					source:"kategory/Moral.png"
-				CheckBox:
-					id:KatMor
-					background_checkbox_normal:"Net.png"
-					background_checkbox_down:"Da.png"
-					size_hint_x:.15
-				Image:
-					id:i
-					allow_stretch:True
-					keep_ratio:False
-					source:"kategory/18.png"
-				CheckBox:
-					id:Kat18
-					background_checkbox_normal:"Net.png"
-					background_checkbox_down:"Da.png"
-					size_hint_x:.15
+		
+			
+		GridLayout:
+			pos_hint:{"top":.9,"right":1}
+			size_hint:1,.6
+			cols:3
+			
 				
+			ImageButton:
+				
+				id:KatDobr
+				source:"eng/kategory/kind.png"
+				on_press:
+					app.dobriy()
+				
+
+				
+			ImageButton:
+				
+				id:KatMor
+				source:"eng/kategory/moral.png"
+				on_press:
+					app.morality()
+					
+				
+			ImageButton:
+				id:KatPol
+				source:"eng/kategory/pol.png"
+				on_press:
+					app.policy()
+					
+				
+			ImageButton:
+				id:KatVec
+				source:"eng/kategory/party.png"
+				on_press:
+					app.party()
+					
+				
+			ImageButton:
+				id:KatSkelet
+				source:"eng/kategory/skelet.png"
+				on_press:
+					app.skelet()
+					
+				
+			ImageButton:
+				id:Kat18
+				source:"eng/kategory/adult.png"
+				on_press:
+					app.adult()
+		ImageButton:
+			id:knopkanagrady
+			source:"eng/kategory/rek.png"
+			
+			pos_hint:{"top":.65,"right":.9835}
+			size_hint:.3,.4
+			on_press:
+				app.reward()
+				self.parent.remove_widget(self)		
+		GridLayout:
+			rows:1
+			spacing:30
+			
+			pos_hint:{"top":.22,"left":1}
+			size_hint:1,.1
+			ImageButton:			
+				id:laws
+				source:"eng/icons/laws0.png"
+				on_release:
+					app.pageinfo()
+				on_press:
+					app.Klik()	
+			ImageButton:
+				id:zvuk4				
+				source:"eng/icons/voloff.png"
+				on_press:
+					app.Klik()	
+				on_release:
+					app.Zvuk()
+			ImageButton:
+				id:home
+				source:"eng/icons/home.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.change_screen("menu_screen")
+			ImageButton:
+				source:"eng/icons/language.png"
+				on_press:
+					app.Klik()
+			ImageButton:
+				source:"eng/icons/help.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.infoscr()
 			
 					
 					

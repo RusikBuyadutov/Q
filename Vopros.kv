@@ -1,53 +1,115 @@
+<Label>:
+	font_name:"style.ttf"
 <Vopros>:
 	FloatLayout:
+		id:voprosfloat
 		canvas.before:
 			Rectangle:
 				pos:self.pos
 				size:self.size			
-				source:"primer1.png"
+				source:"eng/backfon/question.png"
 		
 			
 		Image:
 			id:vopros
-
-			pos_hint:{"top":.95,"right":1}
-			size_hint:1,.6
-			source:"Vopros/I/intim (1).png"
+			keep_ratio:False
+			allow_stretch:True
+			pos_hint:{"top":.8,"right":.622}
+			size_hint:.533,.4
+			source:
 		GridLayout:
-			rows:1
-			pos_hint:{"top":.35,"left":.5}
-			size_hint:1,.1
-			padding:[root.width/7,0,root.width/7,0]
+			rows:3
+			pos_hint:{"top":.7,"right":1}
+			size_hint:.42,.2
+
 			ImageButton:
-				size_hint:.5,.8
-				id:za
-				source:"minus.png"
-				on_press:
 				
-					app.chetmin()
+				id:protiv
+				source:"eng/buttons/plus.png"
+				on_press:
+					app.chetplus()
+			
 			Label:
 				id:chetchik
 				color:[0,0,0,1]
 				bold:True
 				text:"1"
 				font_size:55
+			
 			ImageButton:
-				size_hint:.5,.8
-				id:protiv
-				source:"plus.png"
+				
+				id:za
+				source:"eng/buttons/minus.png"
 				on_press:
-					app.chetplus()
+				
+					app.chetmin()
+		
+			
+		ImageButton:
+			
+			pos_hint:{"top":.47,"right":1}
+			size_hint:.42,.1
+			source:"eng/buttons/quest.png"
+			on_press:
+				app.Klik()
+			on_release:
+				app.questionbut()
+			
+			
+			
+		ImageButton:
+			id:protiv
+			pos_hint:{"top":.56,"right":.34}
+			size_hint:.2,.4
+			source:"eng/buttons/no.png"
+			on_press:
+				app.disagree()
+		ImageButton:
+			id:za
+			pos_hint:{"top":.56,"right":.58}
+			size_hint:.2,.4
+			source:"eng/buttons/yes.png"
+			on_press:
+				app.agree()
+		ImageButton:
+			id:voprosnext
+			pos_hint:{"top":.315,"right":1}
+			size_hint:1,.1
+			source:"eng/buttons/next.png"
+			on_press:
+				app.Klik()
+				app.nextsuk()
+			on_release:
+				app.nextsuk1()
+				app.vopr()
 		GridLayout:
 			rows:1
-			pos_hint:{"top":.25,"left":.5}
-			size_hint:1,.25
-			ImageButton:
-				id:za
-				source:"Za.png"
+			spacing:30
+			
+			pos_hint:{"top":.22,"left":1}
+			size_hint:1,.1
+			ImageButton:			
+				id:laws
+				source:"eng/icons/laws0.png"
+				on_release:
+					app.pageinfo()
 				on_press:
-					app.za1()
+					app.Klik()	
 			ImageButton:
-				id:protiv
-				source:"Protiv.png"
+				id:zvuk5				
+				source:"eng/icons/voloff.png"
 				on_press:
-					app.protiv1()
+					app.Klik()	
+				on_release:
+					app.Zvuk()
+			
+			ImageButton:
+				source:"eng/icons/language.png"
+				on_press:
+					app.Klik()
+			ImageButton:
+				source:"eng/icons/help.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.infoscr()

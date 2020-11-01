@@ -1,47 +1,41 @@
 <Label>:
-	font_name:"10062.ttf"
+	font_name:"style.ttf"
 <TextInput>
-	font_name:"10062.ttf"
+	font_name:"style.ttf"
 <Igrok>:
 	FloatLayout:
 		id:igrokfloat
 		canvas.before:			
 			Rectangle:
-				source:"primer1.png"
+				source:"eng/backfon/playerpage.png"
 				pos:self.pos
 				size:self.size
 		ImageButton:
-			pos_hint:{"top":.99,"left":.90}
-			size_hint:.2,.15
-			source:"3.png"
+			pos_hint:{"top":.415,"left":.1}
+			size_hint:1,.15
+			source:"eng/icons/addplayer.png"
 			on_press:
 				app.Klik()
-
 			on_release:
-				
-				
 				app.add_player()
 		ImageButton:
 			id:igrokprodoljit
-			pos_hint:{"top":.95,"right":.75}
-			size_hint:.5,.1
-			source:"Go.png"
+			pos_hint:{"top":.3,"left":.1}
+			size_hint:1,.1
+			source:"eng/buttons/ok.png"
 			on_press:
 				app.Klik()
-				app.proverka()
-				app.proverka3()
-		ImageButton:
-			pos_hint:{"top":.99,"right":.94}
-			size_hint:.1,.1
-			source:"Krestik.png"
-			on_press:
-				app.Klik()
+				
+				app.ok()
 			on_release:
-				app.change_screen("menu_screen")
+				app.ok1()
+				app.proverka3()
+				app.proverka()
+		
 		
 		ScrollView:
-			pos_hint:{"top":.8,"right":1}
-			size_hint:1,1	
+			pos_hint:{"top":.79,"right":1}
+			size_hint:1,.4
 			GridLayout:
 				size_hint_y: None
             	height: self.minimum_height
@@ -56,36 +50,60 @@
 				TextInput:
 					id:igrok1
 					font_size:40
-					halign: 'center'
-		      
-					background_color:(255/255, 158/255, 128/255, 1)
-					hint_text:"Введите имя 1-ого"
+					halign:"center"	      					
+					hint_text:"player 1"
 					hint_text_color:0,0,0,1
-					multiline:False					
-					background_normal:"Knopka.png"
-					background_active:"Knopka.png"
-					
-						
+					multiline:False						
 				TextInput:
-					id:igrok2
+					id:igrok2	
 					font_size:40
-					halign: 'center'
-		            valign: 'middle'
-		            background_color:(255/255, 158/255, 128/255, 1)
-					hint_text:"Введите имя 2-ого"
+					halign:"center"			
+					hint_text:"player 2"
 					hint_text_color:0,0,0,1
 					multiline:False
-					background_normal:"Knopka.png"
-					background_active:"Knopka.png"
+					
 				TextInput:
 					id:igrok3
 					font_size:40
-					halign: 'center'
-		            valign: 'middle'
-		            background_color:(255/255, 158/255, 128/255, 1)
-					hint_text:"Введите имя 3-его"
+					halign:"center"
+					hint_text:"player 3"
 					hint_text_color:0,0,0,1
 					multiline:False
-					background_normal:"Knopka.png"
-					background_active:"Knopka.png"
-				
+					
+		GridLayout:
+			rows:1
+			spacing:30
+			
+			pos_hint:{"top":.22,"left":1}
+			size_hint:1,.1
+			ImageButton:			
+				id:laws
+				source:"eng/icons/laws0.png"
+				on_release:
+					app.pageinfo()
+				on_press:
+					app.Klik()	
+			ImageButton:
+				id:zvuk3				
+				source:"eng/icons/voloff.png"
+				on_press:
+					app.Klik()	
+				on_release:
+					app.Zvuk()
+			ImageButton:
+				id:home
+				source:"eng/icons/home.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.change_screen("menu_screen")
+			ImageButton:
+				source:"eng/icons/language.png"
+				on_press:
+					app.Klik()
+			ImageButton:
+				source:"eng/icons/help.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.infoscr()

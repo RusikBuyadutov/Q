@@ -1,3 +1,5 @@
+<Label>:
+	font_name:"style.ttf"
 <Leader>:
 	FloatLayout:
 
@@ -5,27 +7,63 @@
 			Rectangle:
 				pos:self.pos
 				size:self.size			
-				source:"lead.png"
+				source:"eng/backfon/resultat.png"
 		
-		ImageButton:
-			id:sledvopros
-			pos_hint:{"top":.95,"right":.75}
-			size_hint:.5,.1
-			source:"sled1.png"
-			on_press:
-				app.nextquestion()
-				app.Klik()
+		
 		Label:
 			id:skolkoza
 			font_size:50
 			bold:True
 			color:[0,0,0,1]
-			pos_hint:{"top":.90,"right":.85}
-			size_hint:.7,.2
+			pos_hint:{"top":.46,"right":.85}
+			size_hint:.3,.1
 		GridLayout:
 			id:leaderboard
 			cols:2
 			padding:[0,0,0,100]
 
-			pos_hint:{"top":.8,"right":1}
-			size_hint:1,.8
+			pos_hint:{"top":.8,"right":.7}
+			size_hint:.6,.5
+		ImageButton:
+			id:sledvopros
+			pos_hint:{"top":.3,"right":.75}
+			size_hint:.5,.1
+			source:"eng/buttons/next.png"
+			on_press:
+				
+				app.Klik()
+				app.nextsuk()
+			on_release:
+				app.nextsuk1()
+				app.nextquestion()
+		GridLayout:
+			rows:1
+			spacing:30
+			
+			pos_hint:{"top":.22,"left":1}
+			size_hint:1,.1
+			ImageButton:			
+				id:laws
+				source:"eng/icons/laws0.png"
+				on_release:
+					app.pageinfo()
+				on_press:
+					app.Klik()	
+			ImageButton:
+				id:zvuk7			
+				source:"eng/icons/voloff.png"
+				on_press:
+					app.Klik()	
+				on_release:
+					app.Zvuk()
+			
+			ImageButton:
+				source:"eng/icons/language.png"
+				on_press:
+					app.Klik()
+			ImageButton:
+				source:"eng/icons/help.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.infoscr()

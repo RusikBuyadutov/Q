@@ -6,20 +6,42 @@
 				
 				pos:self.pos
 				size:self.size	
-				source:"rules/Pravila1.png"					
-		ImageButton:
-			pos_hint:{"top":.98,"right":.92}
-			size_hint:.1,.1
-			source:"Krestik.png"
-			on_press:
-				app.Klik()
-			on_release:
-				app.change_screen("menu_screen")
-		ImageButton:
-			pos_hint:{"top":.15,"right":.85}
-			size_hint:.2,.1
-			source:"StrelkaNapravo.png"
-			on_press:
-				app.Klik()
-			on_release:
-				app.change_pravila("pravila2_screen")
+				source:"eng/backfon/infopage.png"					
+		
+		GridLayout:
+			rows:1
+			spacing:30
+			
+			pos_hint:{"top":.22,"left":1}
+			size_hint:1,.1
+			ImageButton:			
+				id:laws
+				source:"eng/icons/laws1.png"
+				on_release:
+					app.pageinfo1()
+				on_press:
+					app.Klik()	
+			ImageButton:
+				id:zvuk1				
+				source:"eng/icons/voloff.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.Zvuk()	
+			ImageButton:
+				id:home
+				source:"eng/icons/home.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.change_screen("menu_screen")
+			ImageButton:
+				source:"eng/icons/language.png"
+				on_press:
+					app.Klik()
+			ImageButton:
+				source:"eng/icons/help.png"
+				on_press:
+					app.Klik()
+				on_release:
+					app.infoscr()
